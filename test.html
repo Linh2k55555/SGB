@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trang Giới Thiệu SGB Bots</title>
+  <style>
+    /* ...existing code... */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+
+:root {
+  --primary: #410101;
+  --secondary: #ffb347;
+  --light-bg: linear-gradient(135deg, #fff7f0 0%, #ffe0e9 100%);
+  --text: #333;
+  --card-bg: #fff;
+  --shadow: 0 4px 24px rgba(65,1,1,0.10), 0 1.5px 6px rgba(65,1,1,0.07);
+}
+
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  background: var(--light-bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+header {
+  background: linear-gradient(90deg, #410101 60%, #ffb347 100%);
+  color: #fff;
+  padding: 1.5rem 2rem;
+  border-radius: 0 0 24px 24px;
+  box-shadow: var(--shadow);
+}
+
+header h1 {
+  font-size: 2rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.logo-group img {
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  transition: transform .2s;
+}
+.logo-group img:hover {
+  transform: scale(1.08) rotate(-8deg);
+}
+
+main {
+  max-width: 1200px;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
+}
+
+.bot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2.5rem;
+  position: relative;
+  overflow: visible;
+}
+
+.bot-item {
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  background: var(--card-bg);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 2.2rem 1.2rem 1.5rem 1.2rem;
+  transition: transform .18s, box-shadow .18s;
+  border: 2px solid transparent;
+  overflow: visible;
+  z-index: 1;
+}
+.bot-item:hover {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 8px 32px rgba(65,1,1,0.13), 0 2px 8px rgba(65,1,1,0.10);
+  border-color: var(--secondary);
+  z-index: 20;
+}
+
+.icon-wrapper {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 0.7rem;
+  background: linear-gradient(135deg, #fff 60%, #ffe0e9 100%);
+  border: 3px solid var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow .2s;
+  box-shadow: 0 2px 8px rgba(255,179,71,0.10);
+  overflow: hidden;
+}
+
+.bot-item:hover .icon-wrapper {
+  box-shadow: 0 4px 16px rgba(255,179,71,0.18);
+}
+
+.icon-wrapper img {
+  width: 65%;
+  height: 65%;
+  object-fit: contain;
+}
+
+.bot-name {
+  margin-top: 0.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1.13rem;
+  letter-spacing: 1px;
+}
+
+.bot-popup {
+  position: absolute;
+  top: 50%;
+  left: 110%;
+  width: 250px;
+  padding: 1.1rem 1rem 1.1rem 1.2rem;
+  background: #fff;
+  border: 2px solid var(--secondary);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(255,179,71,0.12);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) scale(.92);
+  transition: opacity .2s, transform .2s, left .2s, top .2s;
+  z-index: 9999;
+  text-align: left;
+  overflow: visible;
+}
+.bot-item:hover .bot-popup {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) scale(1);
+}
+
+.bot-popup::before {
+  content: "";
+  position: absolute;
+  left: -18px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent var(--secondary) transparent transparent;
+}
+
+.bot-popup h4 {
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+  font-size: 1.13rem;
+  font-weight: 700;
+}
+.bot-popup p {
+  font-size: 0.97rem;
+  line-height: 1.5;
+  color: #444;
+}
+.bot-popup a {
+  display: inline-block;
+  margin-top: 0.85rem;
+  padding: 0.55rem 1.2rem;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(255,179,71,0.10);
+  transition: background .2s, box-shadow .2s;
+}
+.bot-popup a:hover {
+  background: linear-gradient(90deg, #2d0000, #ffb347 80%);
+  box-shadow: 0 4px 16px rgba(255,179,71,0.18);
+}
+
+footer {
+  text-align: center;
+  margin: 3rem 0 1rem;
+  color: #555;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+
+/* Nếu popup bị tràn phải, chuyển sang trái */
+@media (max-width: 1400px) {
+  .bot-item:last-child .bot-popup,
+  .bot-item:nth-last-child(2) .bot-popup {
+    left: auto;
+    right: 110%;
+  }
+  .bot-item:last-child .bot-popup::before,
+  .bot-item:nth-last-child(2) .bot-popup::before {
+    left: auto;
+    right: -18px;
+    border-color: transparent transparent transparent var(--secondary);
+    transform: translateY(-50%) rotateY(180deg);
+  }
+}
+/* Nếu popup bị tràn trái, chuyển sang phải cho mọi cột đầu */
+@media (min-width: 900px) {
+  .bot-item:nth-child(4n+1) .bot-popup {
+    left: 110%;
+    right: auto;
+  }
+  .bot-item:nth-child(4n+1) .bot-popup::before {
+    left: -18px;
+    right: auto;
+    border-color: transparent var(--secondary) transparent transparent;
+    transform: translateY(-50%);
+  }
+}
+
+/* Mobile: popup hiển thị phía dưới */
+@media screen and (max-width: 700px) {
+  .bot-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .bot-popup {
+    left: 50% !important;
+    right: auto !important;
+    top: 110%;
+    transform: translateX(-50%) scale(.92);
+    width: 90vw;
+    max-width: 320px;
+  }
+  .bot-item:hover .bot-popup {
+    transform: translateX(-50%) scale(1);
+  }
+  .bot-popup::before {
+    display: none;
+  }
+    }
+    .logo-group {
+  position: relative;
+  display: inline-block;
+}
+
+.logo-popup {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 110%;
+  transform: translateX(-50%);
+  background: #fff;
+  color: var(--primary);
+  border: 2px solid var(--secondary);
+  border-radius: 10px;
+  box-shadow: 0 4px 24px rgba(255,179,71,0.14);
+  padding: 1rem 1.2rem;
+  min-width: 200px;
+  z-index: 10000;
+  text-align: center;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.logo-group:hover .logo-popup {
+  display: block;
+}
+
+.logo-popup a {
+  color: var(--primary);
+  text-decoration: underline;
+  font-weight: 600;
+}
+.logo-popup a:hover {
+  color: var(--secondary);
+}
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>SGB Discord Bots</h1>
+    <div class="logo-group">
+  <img
+    src="./ChatGPT Image 17_01_20 10 thg 6, 2025.png"
+    alt="Logo SGB"
+    onclick="window.open('https://discord.com/invite/nx9mJcEP8V', '_blank')"
+  />
+  <div class="logo-popup">
+    <strong>Server hỗ trợ bot:</strong><br />
+    <a href="https://discord.com/invite/nx9mJcEP8V" target="_blank">SGB Support Server</a>
+  </div>
+</div>
+  </header>
+
+  <main id="root"></main>
+
+  <footer>
+     © 2025 ShiGiun - SGB • All rights reserved.
+  </footer>
+
+  <!-- React, ReactDOM, Babel -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel" data-presets="react">
+    const bots = [
+      {
+        name: "SGB Welcome",
+        desc: "Thông báo chào mừng và rời đi của thành viên",
+        link: "https://discord.com/oauth2/authorize?client_id=1342036940374933504"
+      },
+      {
+        name: "SGB Recall",
+        desc: "Xem lại tin nhắn đã thu hồi trong vòng 1 tiếng; chọn kênh/role không lưu.",
+        link: "https://discord.com/oauth2/authorize?client_id=1351970123254333450"
+      },
+      {
+        name: "SGB TikTok",
+        desc: "Tự động tải video TikTok khi gửi link vào kênh đã set.",
+        link: "https://discord.com/oauth2/authorize?client_id=1354005504959189002"
+      },
+      {
+        name: "SGB Tarot",
+        desc: "Xem bói Tarot ngẫu nhiên (đang phát triển).",
+        link: "https://discord.com/oauth2/authorize?client_id=1355505508529995905"
+      },
+      {
+        name: "SGB Birthdays",
+        desc: "Chúc mừng sinh nhật theo từng thành viên (đang cập nhật).",
+        link: "https://discord.com/oauth2/authorize?client_id=1356168036633018471"
+      },
+    ];
+
+    function App() {
+      return (
+        <div className="bot-grid">
+          {bots.map((bot, i) => (
+            <div className="bot-item" key={i}>
+              <div className="icon-wrapper">
+                <img
+                  src="./ChatGPT Image 17_01_20 10 thg 6, 2025.png"
+                  alt={bot.name}
+                />
+              </div>
+              <div className="bot-name">{bot.name}</div>
+              <div className="bot-popup">
+                <h4>{bot.name}</h4>
+                <p>{bot.desc}</p>
+                <a href={bot.link} target="_blank" rel="noopener noreferrer">
+                  Thêm vào Server
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      );
+    }
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>
