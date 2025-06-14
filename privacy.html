@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chính Sách Bảo Mật - SGB Bots</title>
+  <style>
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: linear-gradient(135deg, #fff7f0 0%, #ffe0e9 100%);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 900px;
+      margin: 3rem auto 2rem;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(65,1,1,0.10), 0 1.5px 6px rgba(65,1,1,0.07);
+      padding: 2.5rem 2rem;
+    }
+    h1 {
+      color: #410101;
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+      text-align: center;
+    }
+    .pdf-viewer {
+      width: 100%;
+      height: 700px;
+      border: none;
+      margin: 2rem 0 1.5rem 0;
+      display: block;
+      background: #f7f7f7;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(65,1,1,0.07);
+    }
+    .pdf-fallback {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 1.08rem;
+    }
+    .back-link {
+      display: block;
+      margin: 2.5rem auto 0;
+      text-align: center;
+    }
+    .back-link a {
+      color: #410101;
+      text-decoration: underline;
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: color .2s;
+    }
+    .back-link a:hover {
+      color: #ffb347;
+    }
+    footer {
+      text-align: center;
+      margin: 3rem 0 1rem;
+      color: #555;
+      font-size: 1rem;
+      letter-spacing: 1px;
+    }
+    @media (max-width: 700px) {
+      .container {
+        padding: 1rem 0.3rem;
+      }
+      .pdf-viewer {
+        height: 60vw;
+        min-height: 350px;
+        max-height: 70vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Chính Sách Bảo Mật</h1>
+    <iframe class="pdf-viewer" src="Chinh-sach-bao-mat-SGB.pdf">
+      Trình duyệt của bạn không hỗ trợ xem PDF.
+    </iframe>
+    <div class="pdf-fallback">
+      Nếu không xem được, bạn có thể <a href="Chinh-sach-bao-mat-SGB.pdf" target="_blank">tải về file PDF tại đây</a>.
+    </div>
+    <div class="back-link">
+      <a href="home.html">← Quay về Trang chủ</a>
+    </div>
+  </div>
+  <footer>
+    © 2025 ShiGiun - SGB • All rights reserved.
+  </footer>
+</body>
+</html>
